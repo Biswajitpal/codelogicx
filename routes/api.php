@@ -4,7 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\users;
+use App\Http\Controllers\users\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['prefix' => 'api'], function() {
+    Route::resource('user',UserController::class);
+    Route::get('/users', 'App\Http\Controllers\users\UserController@index');
+    Route::post('/users', 'App\Http\Controllers\users\UserController@store');
+    Route::delete('/users/id', 'App\Http\Controllers\users\UserController@destroy');
+});
+//Route::resource('users', 'App\Http\Controllers\users\UserController');
 
 Route::get('/', [Controller::class, 'routes'])
     ->name('entry-point')

@@ -75,6 +75,18 @@ const menuItems:MenuItem[] = [
     guarded: true,
     names: ['sessions'],
   },
+  {
+    name: 'Employee',
+    to: '/employee',
+    guarded: true,
+    names: ['employee'],
+  },
+  {
+    name: 'Form',
+    to: '/form',
+    guarded: true,
+    names: ['form'],
+  },
 ]
 
 
