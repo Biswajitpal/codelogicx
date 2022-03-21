@@ -134,21 +134,21 @@ export default{
     }
   },
   methods: {
-    async submitForm(){
-      this.msg = await axios.post('http://localhost:8000/api/user',{content:this.form});
-      console.log(this.msg);
-      this.formReset();
-      this.fetch();
-    },
-    async getEmployee(){
+      async submitForm(){
+        this.msg = await axios.post('http://localhost:8000/api/user',{content:this.form});
+        console.log(this.msg);
+        this.formReset();
+        this.fetch();
+      },
+      async getEmployee(){
 				let res = await axios.get('http://localhost:8000/api/user');
         console.log(res);
 			},
-    async fetch(){
-      this.employees = await fetch('http://localhost:8000/api/user').then(res=>res.json())
-      console.log(this.employees)
-    },
-    async formReset(){
+      async fetch(){
+        this.employees = await fetch('http://localhost:8000/api/user').then(res=>res.json())
+        console.log(this.employees)
+      },
+      async formReset(){
 				this.form.name = '';
 				this.form.email = '';
 				this.form.exprience = '';
